@@ -66,7 +66,7 @@ Os scripts em DAX abaixo proporcionam a criação automática de uma Tabela Cale
 
 A maior vantagem desta versão é que a dCalendario se ajustará dinamicamente conforme o range de datas que existir em outras tabelas de seu modelo de dados. Logo, se novas datas entrarem nas suas tabelas, a dCalendario criará automaticamente linhas de 01/jan até 31/dez entre o menor e o maior ano que existir em sua base. Mais detalhes [aqui](https://docs.microsoft.com/pt-br/dax/calendarauto-function-dax). Isso mantém o modelo de dados mais leve e elimina a necessidade de revisões manuais futuras na dCalendario.
 
-Para usar esta versão, basta copiar o código abaixo e colá-lo na barra de fórmulas em uma nova tabela em branco (Guia "Modelagem" > botão "Nova Tabela")[^1].
+Para usar esta versão, basta copiar o código abaixo e colá-lo na barra de fórmulas em uma nova tabela em branco (Guia "Modelagem" > botão "Nova Tabela")<sup id="voltar1">[[1]](#nota1)</sup>.
 
 ```dax
 dCalendario = 
@@ -100,7 +100,7 @@ dCalendario =
 
 Em alguns casos, a dCalendario V1 pode apresentar um erro de "dependência circular" quando relacionada à outras tabelas do modelo. Para contornar esse erro, temos a dCalendario V2 que utiliza datas fixas por meio da função [CALENDAR()](https://docs.microsoft.com/pt-br/dax/calendar-function-dax).
 
-Para usar esta versão, basta copiar o código abaixo e colá-lo na barra de fórmulas em uma nova tabela em branco (Guia "Modelagem" > botão "Nova Tabela")[^1]. Contudo, na linha que contém a função CALENDAR(), substitua o parâmetro "*Tabela[Coluna]*" na função [FIRSTDATE()](https://docs.microsoft.com/pt-br/dax/firstdate-function-dax) e [LASTDATE()](https://docs.microsoft.com/pt-br/dax/lastdate-function-dax) pela sua tabela e coluna que contenha o ano desejado como referência.
+Para usar esta versão, basta copiar o código abaixo e colá-lo na barra de fórmulas em uma nova tabela em branco (Guia "Modelagem" > botão "Nova Tabela")<sup id="voltar2">[[1]](#nota1)</sup>. Contudo, na linha que contém a função CALENDAR(), substitua o parâmetro "*Tabela[Coluna]*" na função [FIRSTDATE()](https://docs.microsoft.com/pt-br/dax/firstdate-function-dax) e [LASTDATE()](https://docs.microsoft.com/pt-br/dax/lastdate-function-dax) pela sua tabela e coluna que contenha o ano desejado como referência.
 
 ```dax
 dCalendario = 
@@ -136,7 +136,7 @@ Esta versão estática da Tabela Calendário possui um range de datas pré-defin
 
 A dCalendario estática vem em dois "sabores":
 
-- **[Arquivo .XLSX](https://github.com/andrecontisilva/Datasets/tree/main/Dim/dCalendario/xlsx)**, com fórmulas Excel embutidas nas células para manutenção ou refatoração do dataset, caso seja necessário inserir ou retirar novas linhas de datas[^2].
+- **[Arquivo .XLSX](https://github.com/andrecontisilva/Datasets/tree/main/Dim/dCalendario/xlsx)**, com fórmulas Excel embutidas nas células para manutenção ou refatoração do dataset, caso seja necessário inserir ou retirar novas linhas de datas<sup id="voltar3">[[2]](#nota2)</sup>.
 - **[Arquivo .CSV](https://github.com/andrecontisilva/Datasets/tree/main/Dim/dCalendario/csv)**, para carregamento direto no Power BI sem a necessidade de maiores transformações. O CSV está em padrão UTF-8 separado por ";" (ponto e vírgula). Este arquivo nada mais é que a conversão em CSV do arquivo XLSX.
 
 [:top:](#tabela-calendário)
@@ -161,8 +161,8 @@ Para mais detalhes, veja a **[licença completa](https://github.com/andrecontisi
 
 ## Notas
 
-[^1]: *Por padrão, o DAX cria a dCalendario com a primeira coluna "**Data**" com o nome "**Date**". Seu nome deve ser renomeado manualmente para "**Data**" se esta for sua necessidade.*
+<b id="nota1">1:</b> *Por padrão, o DAX cria a dCalendario com a primeira coluna "**Data**" com o nome "**Date**". Seu nome deve ser renomeado manualmente para "**Data**" se esta for sua necessidade.* [↩](#voltar1) [↩](#voltar2)
 
-[^2]: *Inserir linhas de datas **posteriores a 2070**??? Parabéns! Considere-se um Marty McFly ou Exterminador do Futuro...*
+<b id="nota2">2:</b> *Inserir linhas de datas **posteriores a 2070**??? Parabéns! Considere-se um Marty McFly ou Exterminador do Futuro...* [↩](#voltar3)
 
 [:top:](#tabela-calendário)
