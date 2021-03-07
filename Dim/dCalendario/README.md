@@ -136,8 +136,8 @@ Esta versão estática da Tabela Calendário possui um range de datas pré-defin
 
 A dCalendario estática vem em dois "sabores":
 
-- **Arquivo .XLSX [LINK NO XLSX Git]**, com fórmulas Excel embutidas nas células para manutenção ou refatoração do dataset, caso seja necessário inserir ou retirar novas linhas de datas[^2].
-- **Arquivo .CSV [LINK NO CSV Git]**, para carregamento direto no Power BI sem a necessidade de maiores transformações. O CSV está em padrão UTF-8 separado por ";" (ponto e vírgula). Este arquivo nada mais é que a conversão em CSV do arquivo XLSX.
+- **[Arquivo .XLSX](https://github.com/andrecontisilva/Datasets/tree/main/Dim/dCalendario/xlsx)**, com fórmulas Excel embutidas nas células para manutenção ou refatoração do dataset, caso seja necessário inserir ou retirar novas linhas de datas[^2].
+- **[Arquivo .CSV](https://github.com/andrecontisilva/Datasets/tree/main/Dim/dCalendario/csv)**, para carregamento direto no Power BI sem a necessidade de maiores transformações. O CSV está em padrão UTF-8 separado por ";" (ponto e vírgula). Este arquivo nada mais é que a conversão em CSV do arquivo XLSX.
 
 [:top:](#tabela-calendário)
 
@@ -155,7 +155,7 @@ A dCalendario estática vem em dois "sabores":
 >
 > *Copyright (c) 2021 [André Conti Silva](https://www.linkedin.com/in/andreconti/)*
 
-Para mais detalhes, veja a licença completa **[LINK AQUI]**.
+Para mais detalhes, veja a **[licença completa](https://github.com/andrecontisilva/Datasets/blob/main/LICENSE)**.
 
 [:top:](#tabela-calendário)
 
