@@ -41,6 +41,7 @@ Para facilitar tais ajustes, temos a seguinte tabela de referência da base de d
 | :--- | :--- | :---: | :--- | :---: | :--- |  
 | *Data* | 21/10/2015 | ![Data](https://docs.microsoft.com/pt-br/power-query/images/date_20.png) | dd/mm/yyyy | 10 | Campo chave da tabela (Primary Key). |
 | *Ano* | 2015 | ![Número Inteiro](https://docs.microsoft.com/pt-br/power-query/images/wholenumber_20.png) | Número Inteiro | 4 | - |
+| *Semestre* | 2S/15 | ![Texto](https://docs.microsoft.com/pt-br/power-query/images/text_20.png) | Texto | 5 | Semestre abreviado. |
 | *Trimestre* | 4T15 | ![Texto](https://docs.microsoft.com/pt-br/power-query/images/text_20.png) | Texto | 4 | Trimestre abreviado (padrão brasileiro). |
 | *Quarter* | Q4/15 | ![Texto](https://docs.microsoft.com/pt-br/power-query/images/text_20.png) | Texto | 5 | Trimestre abreviado (padrão americano). |
 | *Mês* | Outubro |  ![Texto](https://docs.microsoft.com/pt-br/power-query/images/text_20.png) | Texto | 9 | - |
@@ -73,8 +74,9 @@ dCalendario =
     ADDCOLUMNS(
         CALENDARAUTO(),
             "Ano",FORMAT([Date],"yyyy"),
-            "Trimestre",CONCATENATE(CONCATENATE(FORMAT([Date],"q"),"T"),RIGHT(YEAR([Date]),2)),
-            "Quarter",CONCATENATE(CONCATENATE("Q",FORMAT([Date],"q"))&"/",RIGHT(YEAR([Date]),2)),
+            "Semestre",CONCATENATE(IF(MONTH([Date])<=6,1,2)&"S/",RIGHT(YEAR([Date]),2)),
+            "Trimestre",CONCATENATE(FORMAT([Date],"q")&"T",RIGHT(YEAR([Date]),2)),
+            "Quarter",CONCATENATE("Q"&FORMAT([Date],"q")&"/",RIGHT(YEAR([Date]),2)),
             "Mês",UPPER(LEFT(FORMAT([Date],"mmmm"),1))&RIGHT(FORMAT([Date],"mmmm"),LEN(FORMAT([Date],"mmmm"))-1),
             "Mês Abreviado",UPPER(LEFT(FORMAT([Date],"mmm"),1))&RIGHT(FORMAT([Date],"mmm"),LEN(FORMAT([Date],"mmm"))-1),
             "Número do Mês",MONTH([Date]),
@@ -107,8 +109,9 @@ dCalendario =
     ADDCOLUMNS(
         CALENDAR(DATE(YEAR(FIRSTDATE(Tabela[Coluna])),01,01),DATE(YEAR(LASTDATE(Tabela[Coluna])),12,31)),
             "Ano",FORMAT([Date],"yyyy"),
-            "Trimestre",CONCATENATE(CONCATENATE(FORMAT([Date],"q"),"T"),RIGHT(YEAR([Date]),2)),
-            "Quarter",CONCATENATE(CONCATENATE("Q",FORMAT([Date],"q"))&"/",RIGHT(YEAR([Date]),2)),
+            "Semestre",CONCATENATE(IF(MONTH([Date])<=6,1,2)&"S/",RIGHT(YEAR([Date]),2)),
+            "Trimestre",CONCATENATE(FORMAT([Date],"q")&"T",RIGHT(YEAR([Date]),2)),
+            "Quarter",CONCATENATE("Q"&FORMAT([Date],"q")&"/",RIGHT(YEAR([Date]),2)),
             "Mês",UPPER(LEFT(FORMAT([Date],"mmmm"),1))&RIGHT(FORMAT([Date],"mmmm"),LEN(FORMAT([Date],"mmmm"))-1),
             "Mês Abreviado",UPPER(LEFT(FORMAT([Date],"mmm"),1))&RIGHT(FORMAT([Date],"mmm"),LEN(FORMAT([Date],"mmm"))-1),
             "Número do Mês",MONTH([Date]),
